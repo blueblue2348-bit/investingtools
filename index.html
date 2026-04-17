@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>InvestingTools - Analyze. Invest. Win.</title>
+  <title>InvestingSprint - Analyze. Invest. Win.</title>
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -17,24 +17,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
-    /* Custom styles to apply the Inter font */
     body { font-family: 'Inter', sans-serif; }
-    /* Add a subtle gradient glow to the video player */
-    .video-glow { position: relative; }
-    .video-glow::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: 14px; /* a bit larger than the video's border-radius */
-      background: linear-gradient(45deg, #4361ee, #4361ee, #ff9800);
-      z-index: -1;
-      filter: blur(16px);
-      opacity: 0.3;
-      transition: opacity 0.3s;
+    
+    .btn-glow {
+        box-shadow: 0 4px 15px 0 rgba(79, 70, 229, 0.4);
+        transition: all 0.3s ease;
     }
-    .video-glow:hover::before { opacity: 0.5; }
-    /* Smooth scrolling */
-    html { scroll-behavior: smooth; }
+    
+    .btn-glow:hover {
+        box-shadow: 0 6px 20px 0 rgba(79, 70, 229, 0.6);
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -45,49 +37,18 @@
       <div class="flex justify-between items-center">
         <a href="#" class="font-extrabold text-2xl text-blue-600 flex items-center gap-2">
           <i class="fas fa-chart-line"></i>
-          <span>InvestingTools</span>
+          <span>InvestingSprint</span>
         </a>
         <nav class="hidden md:flex items-center space-x-8">
-         
           <a href="#tools" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Tools</a>
-          
-          
           <a href="#videos" class="text-slate-600 hover:text-blue-600 font-medium transition-colors">Videos</a>
-        
-  
-                        </a>
-                        <a href="#tools"
-                           class="bg-slate-700 text-slate-100 font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-slate-600 transition-all transform hover:scale-105 flex items-center justify-center">
-                            Explore Investing Tools
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Replaced <video> with YouTube iframe -->
-              <div class="video-glow">
-  <div class="aspect-video rounded-xl shadow-2xl overflow-hidden">
-    <iframe
-      loading="lazy"
-      src="https://www.youtube-nocookie.com/embed/videoseries?list=PLXr_FgWcQCi4Emh1fOMARm1axnC-o9snB&rel=0&modestbranding=1&playsinline=1&iv_load_policy=3"
-      title="InvestingSprint Playlist"
-      class="w-full h-full"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen>
-      <a href="https://www.youtube.com/playlist?list=PLXr_FgWcQCi4Emh1fOMARm1axnC-o9snB" target="_blank" rel="noopener noreferrer" class="text-slate-300 underline">Watch on YouTube ↗</a>
-
-    </iframe>
-  </div>
-  <p class="text-center text-slate-300 mt-4 text-lg font-medium">
-    How I Use Stock Analysis to Find Undervalued Companies
-  </p>
-</div>
-            </div>
-        </div>
-    </main>
+        </nav>
+      </div>
+    </div>
+  </header>
 
   <!-- Tools Section -->
-  <section id="tools" class="py-24 bg-white">
+  <section id="tools" class="pt-32 pb-24 bg-gray-100">
     <div class="container mx-auto px-6">
       <div class="text-center mb-16">
         <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">Our Free Tools</h2>
@@ -95,198 +56,120 @@
           Powerful investing tools! Click a tool to Start your Analysis!
         </p>
       </div>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Financial Tools</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f3f4f6;
-        }
-    </style>
-</head>
-<body class="p-8">
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-  <!-- Tool Card: Compound Interest -->
-    <a href="https://investingsprint.com/Calculator/" class="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-        <div class="p-6">
-            <div class="flex items-center gap-4">
-                <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-coins fa-lg"></i></div>
-                <h3 class="text-xl font-bold text-slate-900">Compound Interest</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Tool Card: Compound Interest -->
+        <a href="https://investingsprint.com/Calculator/" class="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
+            <div class="p-6">
+                <div class="flex items-center gap-4">
+                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-coins fa-lg"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900">Compound Interest</h3>
+                </div>
+                <p class="mt-3 text-slate-600">Project your portfolio’s long-term growth with contributions and reinvestments.</p>
             </div>
-            <p class="mt-3 text-slate-600">Project your portfolio’s long-term growth with contributions and reinvestments.</p>
-        </div>
-        <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-            <img src="https://investingsprint.com/images/Compound.jpg" alt="Compound Interest Calculator preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
-            <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-            <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                <i class="fas fa-external-link-alt"></i> Open Tool
+            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
+                <img src="https://investingsprint.com/images/Compound.jpg" alt="Compound Interest Calculator preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
+                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
+                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
+                    <i class="fas fa-external-link-alt"></i> Open Tool
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
 
-  <!-- Tool Card: Intrinsic Value Calculator -->
-    <a href="https://investingsprint.com/IntrinsicValueCalculator/" class="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-        <div class="p-6">
-            <div class="flex items-center gap-4">
-                <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-calculator fa-lg"></i></div>
-                <h3 class="text-xl font-bold text-slate-900">Intrinsic Value Calculator</h3>
+        <!-- Tool Card: Intrinsic Value Calculator -->
+        <a href="https://investingsprint.com/IntrinsicValueCalculator/" class="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
+            <div class="p-6">
+                <div class="flex items-center gap-4">
+                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-calculator fa-lg"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900">Intrinsic Value Calculator</h3>
+                </div>
+                <p class="mt-3 text-slate-600">Calculate The True Value Per Share of A Stock! (Discounted CashFlow, Warren Buffet OE).</p>
             </div>
-            <p class="mt-3 text-slate-600">Calculate The True Value Per Share of A Stock! (Discounted CashFlow, Warren Buffet OE).</p>
-        </div>
-        <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-            <img src="https://investingsprint.com/images/Value.jpg" alt="Intrinsic Value Calculator preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
-            <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-            <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                <i class="fas fa-external-link-alt"></i> Open Tool
+            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
+                <img src="https://investingsprint.com/images/Value.jpg" alt="Intrinsic Value Calculator preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
+                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
+                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
+                    <i class="fas fa-external-link-alt"></i> Open Tool
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
 
-  <!-- Tool Card: Economic Moat Analyzer -->
-    <a href="https://blueblue2348-bit.github.io/investingtools/economicmoat.html" class="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-        <div class="p-6">
-            <div class="flex items-center gap-4">
-                <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-shield-alt fa-lg"></i></div>
-                <h3 class="text-xl font-bold text-slate-900">Economic Moat Analyzer</h3>
+        <!-- Tool Card: Economic Moat Analyzer -->
+        <a href="https://investingsprint.com/EconomicMoatAnalyzer/" class="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
+            <div class="p-6">
+                <div class="flex items-center gap-4">
+                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-shield-alt fa-lg"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900">Economic Moat Analyzer</h3>
+                </div>
+                <p class="mt-3 text-slate-600">Find The Economic Moat Strength of a Stock! (Brand Recognition, Switching Costs, Network Effects & more).</p>
             </div>
-            <p class="mt-3 text-slate-600">Find The Economic Moat Strength of a Stock! (Brand Recognition, Switching Costs, Network Effects & more).</p>
-        </div>
-        <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-            <img src="https://investingsprint.com/images/Moat.jpg" alt="Economic Moat Analyzer preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
-            <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-            <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                <i class="fas fa-external-link-alt"></i> Open Tool
+            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
+                <img src="https://investingsprint.com/images/Moat.jpg" alt="Economic Moat Analyzer preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
+                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
+                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
+                    <i class="fas fa-external-link-alt"></i> Open Tool
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
 
-  <!-- Tool Card: Portfolio Tracker -->
-    <a href="https://blueblue2348-bit.github.io/investingtools/Portfolio.html" class="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-        <div class="p-6">
-            <div class="flex items-center gap-4">
-                <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-chart-pie fa-lg"></i></div>
-                <h3 class="text-xl font-bold text-slate-900">Portfolio Tracker</h3>
+        <!-- Tool Card: Portfolio Tracker -->
+        <a href="https://investingsprint.com/PortfolioTracker/" class="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
+            <div class="p-6">
+                <div class="flex items-center gap-4">
+                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-chart-pie fa-lg"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900">Portfolio Tracker</h3>
+                </div>
+                <p class="mt-3 text-slate-600">Follow your portfolio’s performance with real-time tracking and allocation view</p>
             </div>
-            <p class="mt-3 text-slate-600">Follow your portfolio’s performance with real-time tracking and allocation view</p>
-        </div>
-        <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-            <img src="https://investingsprint.com/images/Tracker.jpg" alt="Portfolio Tracker preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
-            <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-            <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                <i class="fas fa-external-link-alt"></i> Open Tool
+            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
+                <img src="https://investingsprint.com/images/Tracker.jpg" alt="Portfolio Tracker preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
+                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
+                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
+                    <i class="fas fa-external-link-alt"></i> Open Tool
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
 
-  <!-- Tool Card: Paper Trading -->
-    <a href="https://investingsprint.com/PaperTrading/" class="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-        <div class="p-6">
-            <div class="flex items-center gap-4">
-                <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-clipboard-check fa-lg"></i></div>
-                <h3 class="text-xl font-bold text-slate-900">Paper Trading</h3>
+        <!-- Tool Card: Paper Trading -->
+        <a href="https://investingsprint.com/PaperTrading/" class="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
+            <div class="p-6">
+                <div class="flex items-center gap-4">
+                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-clipboard-check fa-lg"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900">Paper Trading</h3>
+                </div>
+                <p class="mt-3 text-slate-600">Practice investment strategies risk‑free.</p>
             </div>
-            <p class="mt-3 text-slate-600">Practice investment strategies risk‑free.</p>
-        </div>
-        <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-            <img src="https://investingsprint.com/images/Paper.jpg" alt="Paper Trading preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
-            <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-            <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                <i class="fas fa-external-link-alt"></i> Open Tool
+            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
+                <img src="https://investingsprint.com/images/Paper.jpg" alt="Paper Trading preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
+                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
+                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
+                    <i class="fas fa-external-link-alt"></i> Open Tool
+                </div>
             </div>
-        </div>
-    </a>
+        </a>
 
-  <!-- Tool Card: Stock Game -->
-    <a href="https://investingsprint.com/StockGame/" class="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-        <div class="p-6">
-            <div class="flex items-center gap-4">
-                <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-gamepad fa-lg"></i></div>
-                <h3 class="text-xl font-bold text-slate-900">Stock Game</h3>
+        <!-- Tool Card: Stock Game -->
+        <a href="https://investingsprint.com/StockGame/" class="group block bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
+            <div class="p-6">
+                <div class="flex items-center gap-4">
+                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-gamepad fa-lg"></i></div>
+                    <h3 class="text-xl font-bold text-slate-900">Stock Game</h3>
+                </div>
+                <p class="mt-3 text-slate-600">Sharpen your investing skills and win a free RapidReads ebook</p>
             </div>
-            <p class="mt-3 text-slate-600">Sharpen your investing skills and win a free RapidReads ebook</p>
-        </div>
-        <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-            <img src="https://investingsprint.com/images/Game.jpg" alt="Stock Game preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
-            <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-            <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                <i class="fas fa-external-link-alt"></i> Open Tool
+            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
+                <img src="https://investingsprint.com/images/Game.jpg" alt="Stock Game preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
+                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
+                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
+                    <i class="fas fa-external-link-alt"></i> Open Tool
+                </div>
             </div>
-        </div>
-    </a>
-</div>
-
-</body>
-</html>
-
-
+        </a>
       </div>
     </div>
   </section>
 
-  
-
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Channel</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for YouTube icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
-</head>
-<body class="bg-gray-100">
-
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Channel</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for YouTube icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
-</head>
-<body class="bg-gray-100">
-
-  <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Channel</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for YouTube icon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-    </style>
-</head>
-<body class="bg-gray-100">
-
-  <!-- Videos Section (fixed layout, consistent spacing) -->
+  <!-- Videos Section -->
   <section id="videos" class="py-24 bg-slate-50">
     <div class="container mx-auto px-6">
       <div class="text-center">
@@ -296,8 +179,9 @@
           <i class="fab fa-youtube"></i> Visit YouTube Channel
         </a>
       </div>
+      
+      <!-- Video Grid 1 -->
       <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-
         <!-- Video 1 (SMCI) -->
         <div class="aspect-video rounded-xl shadow-2xl overflow-hidden">
           <iframe
@@ -338,6 +222,7 @@
         </div>
       </div>
 
+      <!-- Video Grid 2 -->
       <div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
         <!-- Original Video 1 (Alibaba) -->
         <div class="aspect-video rounded-xl shadow-2xl overflow-hidden">
@@ -381,11 +266,8 @@
     </div>
   </section>
 
-</body>
-</html>
-
   <!-- Latest Market News Section -->
-  <section id="news" class="py-24 bg-slate-50">
+  <section id="news" class="py-24 bg-slate-50 border-t border-slate-200">
     <div class="container mx-auto px-6 text-center">
         <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">Latest Market News</h2>
         <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
