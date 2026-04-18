@@ -44,15 +44,33 @@
 
     header {
       display: flex;
-      justify-content: space-between; /* Adjusted to space out content */
+      justify-content: space-between;
       align-items: center;
-      margin-bottom: 30px; padding: 10px 20px; background-color: white; width: 100%;
+      margin-bottom: 30px; padding: 15px 20px; background-color: white; width: 100%;
       animation: fadeIn 1s ease; border-radius: 15px; box-shadow: var(--shadow);
-      flex-wrap: wrap; /* Allows wrapping on smaller screens */
+      flex-wrap: wrap;
     }
-    .header-left { display: flex; align-items: center; gap: 12px; }
-    .header-link { font-size: 1.2rem; font-weight: 600; color: var(--primary); text-decoration: none; }
-    .header-link:hover { text-decoration: underline; }
+    .header-left { display: flex; align-items: center; }
+    
+    /* Home Button Style */
+    .home-button {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background-color: var(--light);
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 8px;
+      transition: var(--transition);
+      border: 1px solid #e9ecef;
+    }
+    .home-button:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
 
     h1 { color: var(--primary); font-size: 2.5rem; margin-bottom: 10px; }
     .subtitle { color: #6c757d; font-size: 1.1rem; }
@@ -93,23 +111,22 @@
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-    .footer { text-align: right; margin-top: 40px; font-size: 0.9rem; color: #6c757d; }
+    .footer { text-align: center; margin-top: 40px; font-size: 0.9rem; color: #6c757d; border-top: 1px solid #e9ecef; padding-top: 20px; }
     .footer a { color: var(--primary); text-decoration: none; }
     .footer a:hover { text-decoration: underline; }
 
-    /* New styles for header buttons */
     .header-buttons {
       display: flex;
       gap: 12px;
     }
     .header-button {
       text-align: center;
-      padding: 8px 12px;
+      padding: 10px 16px;
       color: #fff;
       border: none;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
       transition: var(--transition);
       box-shadow: var(--shadow);
     }
@@ -136,9 +153,16 @@
         width: 100%;
         margin-top: 10px;
       }
+      .header-left {
+        width: 100%;
+        justify-content: center;
+      }
+      .home-button {
+        width: 100%;
+        justify-content: center;
+      }
     }
 
-    /* Video/Image Container */
     .media-container {
       width: 100%;
       height: auto;
@@ -152,130 +176,91 @@
     <div class="container">
       <header>
         <div class="header-left">
-          <a href="https://investingsprint.com/" target="_blank" class="header-link">InvestingSprint.com</a>
+          <!-- Home button instead of text link -->
+          <a href="https://blueblue2348-bit.github.io/investingtools/" class="home-button">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            Home
+          </a>
         </div>
-        <!-- Buttons moved to the header -->
         <div class="header-buttons">
-            <a href="https://www.youtube.com/@vinc88" target="_blank" class="header-button youtube-ad-button">Learn more on Youtube.com</a>
-            <a href="https://vinc88.gumroad.com/l/MasterStockAnalysis" target="_blank" class="header-button udemy-ad-button">Learn More!</a>
+            <a href="https://www.youtube.com/@vinc88" target="_blank" class="header-button youtube-ad-button">Watch on YouTube</a>
+            <a href="https://vinc88.gumroad.com/l/MasterStockAnalysis" target="_blank" class="header-button udemy-ad-button">Get the Master Course</a>
         </div>
       </header>
 
       <div class="calculator-container">
-        <!-- Moved "How compounding works" to the left -->
         <div class="calculator">
           <h2>How compounding works</h2>
           <p>Compound interest is the addition of interest to the principal sum, so that interest earns interest.</p>
-          <!-- Image demonstrating compounding -->
           <img
             class="media-container"
-            src="https://investingsprint.com/images/Compound.jpg"
+            src="https://blueblue2348-bit.github.io/investingtools/images%20site/Compound.jpg"
             alt="A visual representation of compound interest growth over time."
           >
           <div style="margin-top: 20px;">
-            <h4>Tips:</h4>
+            <h4>Key Principles:</h4>
             <ul style="margin-left: 20px; margin-top: 10px;">
-              <li>Start early to maximize time</li>
-              <li>Higher rates dramatically increase growth</li>
-              <li>Even small regular contributions add up</li>
+              <li><strong>Time:</strong> The longer you wait, the faster it grows.</li>
+              <li><strong>Rate:</strong> Small changes in yield lead to massive final differences.</li>
+              <li><strong>Consistency:</strong> Regular annual additions fuel the engine.</li>
             </ul>
           </div>
         </div>
 
-        <!-- Calculator moved to the right -->
         <div class="calculator">
           <div class="form-group">
             <label for="principal">Initial Investment</label>
             <div class="input-with-icon">
               <span>$</span>
-              <input type="number" id="principal" min="0" step="100" placeholder="Enter amount"/>
+              <input type="number" id="principal" min="0" step="100" placeholder="e.g. 5000"/>
             </div>
           </div>
           <div class="form-group">
-            <label for="rate">Annual Interest Rate</label>
+            <label for="rate">Annual Interest Rate (%)</label>
             <div class="input-with-icon">
               <span>%</span>
-              <input type="number" id="rate" min="0" step="0.1" placeholder="Enter rate"/>
+              <input type="number" id="rate" min="0" step="0.1" placeholder="e.g. 7"/>
             </div>
           </div>
           <div class="form-group">
             <label for="years">Investment Period (years)</label>
-            <input type="number" id="years" min="1" step="1" placeholder="Years"/>
+            <input type="number" id="years" min="1" step="1" placeholder="e.g. 20"/>
           </div>
           <div class="form-group">
             <label for="contribution">Annual Contribution (optional)</label>
             <div class="input-with-icon">
               <span>$</span>
-              <input type="number" id="contribution" min="0" step="100" placeholder="Enter amount"/>
+              <input type="number" id="contribution" min="0" step="100" placeholder="e.g. 1200"/>
             </div>
           </div>
           <button class="action" onclick="calculate()">Calculate Growth</button>
-          <button class="action reset-action" onclick="resetCalculator()">Reset</button>
+          <button class="action reset-action" onclick="resetCalculator()">Reset All</button>
         </div>
       </div>
 
       <div id="results" class="results" style="display: none;">
-        <h2>Your Investment Growth</h2>
+        <h2>Your Investment Results</h2>
         <div class="result-grid">
-          <div class="result-card"><h3>Initial Investment</h3><div class="result-value" id="result-principal"></div></div>
+          <div class="result-card"><h3>Initial Principal</h3><div class="result-value" id="result-principal"></div></div>
           <div class="result-card"><h3>Total Contributions</h3><div class="result-value" id="result-contributions"></div></div>
-          <div class="result-card"><h3>Interest Earned</h3><div class="result-value positive" id="result-interest"></div></div>
-          <div class="result-card"><h3>Final Balance</h3><div class="result-value positive" id="result-total"></div></div>
+          <div class="result-card"><h3>Total Interest Earned</h3><div class="result-value positive" id="result-interest"></div></div>
+          <div class="result-card"><h3>Final Net Worth</h3><div class="result-value positive" id="result-total"></div></div>
         </div>
         <div class="chart-container"><canvas id="growthChart"></canvas></div>
-        <h3>Year-by-Year Growth</h3>
+        <h3>Year-by-Year Growth Table</h3>
         <table>
           <thead>
-            <tr><th>Year</th><th>Starting</th><th>Contributions</th><th>Interest</th><th>Ending Balance</th></tr>
+            <tr><th>Year</th><th>Starting Balance</th><th>Contributions</th><th>Interest Earned</th><th>Ending Balance</th></tr>
           </thead>
           <tbody id="yearly-results"></tbody>
         </table>
       </div>
 
-      <div class="bottom-ad-container"></div>
-
       <footer class="footer">
-        <p>&copy; <a href="https://investingsprint.com/" target="_blank">InvestingSprint.com</a></p>
+        <p>Tools for Financial Freedom &copy; <a href="https://blueblue2348-bit.github.io/investingtools/">Investing Tools</a></p>
       </footer>
     </div>
   </div>
-
-  <!-- SEO structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "WebPage",
-    "name": "Modern Compound Interest Calculator by InvestingSprint.com",
-    "description": "Calculate your compound interest easily with our interactive calculator. See your investment grow year-by-year with initial principal, annual contributions, and interest earned.",
-    "url": "https://investingsprint.com/Calculator/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "InvestingSprint.com",
-      "url": "https://investingsprint.com/"
-    },
-    "potentialAction": {
-      "@type": "CalculateAction",
-      "name": "Calculate Compound Interest",
-      "target": {
-        "@type": "EntryPoint",
-        "urlTemplate": "https://investingsprint.com/Calculator/"
-      },
-      "query-input": [
-        "required name=principal",
-        "required name=rate",
-        "required name=years",
-        "optional name=contribution"
-      ]
-    },
-    "mainEntity": {
-      "@type": "FinancialCalculator",
-      "name": "Compound Interest Calculator",
-      "description": "An online tool to calculate compound interest and visualize investment growth over time.",
-      "isAccessibleForFree": true,
-      "url": "https://investingsprint.com/Calculator/"
-    }
-  }
-  </script>
 
   <script>
     let growthChart;
@@ -287,7 +272,7 @@
       const contribution = parseFloat(document.getElementById('contribution').value) || 0;
 
       if (isNaN(principal) || isNaN(rate) || isNaN(years) || principal < 0 || rate < 0 || years < 1 || contribution < 0) {
-        showMessageBox("Please ensure 'Initial Investment', 'Annual Interest Rate', and 'Investment Period (years)' are valid. 'Annual Contribution' can be zero or positive.");
+        showMessageBox("Please enter valid positive numbers for Investment, Rate, and Years.");
         return;
       }
 
@@ -297,6 +282,7 @@
       let yearlyData = [], chartLabels = [], chartPrincipal = [], chartInterest = [];
 
       for (let year = 1; year <= years; year++) {
+        let starting = currentBalance;
         if (year > 1 && contribution > 0) {
           currentBalance += contribution;
           totalContributions += contribution;
@@ -307,7 +293,7 @@
 
         yearlyData.push({
           year,
-          starting: (year === 1) ? principal : yearlyData[yearlyData.length - 1].ending,
+          starting: starting,
           contributions: (year > 1 ? contribution : 0),
           interest: yearlyInterest,
           ending: currentBalance
@@ -338,22 +324,22 @@
 
       createChart(chartLabels, chartPrincipal, chartInterest);
       document.getElementById('results').style.display = 'block';
+      
+      // Scroll to results on mobile
+      if (window.innerWidth < 768) {
+          document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+      }
     }
 
     function resetCalculator() {
-      // Clear all input fields
       document.getElementById('principal').value = '';
       document.getElementById('rate').value = '';
       document.getElementById('years').value = '';
       document.getElementById('contribution').value = '';
-      
-      // Hide the results section
       document.getElementById('results').style.display = 'none';
-      
-      // Destroy the chart if it exists
       if (growthChart) {
         growthChart.destroy();
-        growthChart = null; // Clear the reference
+        growthChart = null;
       }
     }
 
@@ -369,8 +355,8 @@
         data: {
           labels,
           datasets: [
-            { label: 'Total Contributions', data: principalData, backgroundColor: '#4361ee', borderColor: '#3f37c9', borderWidth: 1 },
-            { label: 'Interest Earned', data: interestData, backgroundColor: '#4cc9f0', borderColor: '#4895ef', borderWidth: 1 }
+            { label: 'Cumulative Contributions', data: principalData, backgroundColor: '#4361ee', borderColor: '#3f37c9', borderWidth: 1 },
+            { label: 'Total Interest Earned', data: interestData, backgroundColor: '#4cc9f0', borderColor: '#4895ef', borderWidth: 1 }
           ]
         },
         options: {
@@ -382,28 +368,26 @@
           },
           plugins: {
             legend: { position: 'top' },
-            title: { display: true, text: 'Investment Growth Over Time', font: { size: 16 } },
+            title: { display: true, text: 'Wealth Accumulation Path', font: { size: 16 } },
             tooltip: {
               callbacks: {
                 label: c => (c.dataset.label ? c.dataset.label + ': ' : '') + '$' + c.parsed.y.toLocaleString()
               }
             }
-          },
-          animation: { duration: 800, easing: 'easeOutQuart' }
+          }
         }
       });
     }
 
-    // Simple message box
     function showMessageBox(message) {
       const box = document.createElement('div');
       box.style.cssText = `
         position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-        background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,.5);
-        z-index: 1000; text-align: center; max-width: 350px; border: 2px solid var(--primary);`;
+        background: #fff; padding: 25px; border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,.3);
+        z-index: 1000; text-align: center; max-width: 350px; border-top: 5px solid var(--primary);`;
       box.innerHTML = `
-        <p style="margin-bottom: 20px; font-size: 1.05rem; font-weight: 600;">${message}</p>
-        <button style="background: var(--primary); color: #fff; border: 0; padding: 10px 18px; border-radius: 8px; font-weight: 700;">OK</button>`;
+        <p style="margin-bottom: 20px; font-size: 1.05rem; color: var(--dark);">${message}</p>
+        <button style="background: var(--primary); color: #fff; border: 0; padding: 10px 25px; border-radius: 8px; font-weight: 700; cursor: pointer;">Got it</button>`;
       document.body.appendChild(box);
       box.querySelector('button').onclick = () => document.body.removeChild(box);
     }
