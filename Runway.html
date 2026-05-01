@@ -1,1 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cash Runway Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #10b981;
+    --primary-dark: #059669;
+    --primary-soft: #ecfdf5;
+    --warning: #f59e0b;
+    --warning-soft: #fffbeb;
+    --critical: #ef4444;
+    --critical-soft: #fef2f2;
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-800: #1e293b;
+    --white: #ffffff;
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+    --radius-lg: 16px;
+    --radius-md: 12px;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f7ff;
+    background-image: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 24px;
+    color: var(--slate-800);
+  }
+  
+  .calculator-card {
+    background: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--radius-lg);
+    max-width: 550px;
+    width: 100%;
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--slate-100);
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
 
+  h1 {
+    font-size: 1.85rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--slate-800);
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    color: var(--slate-500);
+    font-size: 0.95rem;
+  }
+
+  /* Formula UI Styling */
+  .formula-display {
+    background: var(--slate-50);
+    border: 1px solid var(--slate-200);
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--slate-600);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .fraction-ui {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .fraction-line {
+    width: 110%;
+    height: 2px;
+    background: var(--slate-400);
+    border-radius: 2px;
+  }
+
+  .equals-sign {
+    font-size: 1.2rem;
+    color: var(--slate-400);
+  }
+  
+  .input-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .input-field label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    color: var(--slate-800);
+  }
+  
+  .control-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .control-wrapper input {
+    width: 100%;
+    padding: 0.875rem 1rem 0.875rem 2.75rem;
+    border: 2px solid var(--slate-200);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: inherit;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--white);
+  }
+
+  .control-wrapper input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+  }
+  
+  .icon-prefix {
+    position: absolute;
+    left: 1rem;
+    color: var(--slate-400);
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .hint {
+    font-size: 0.75rem;
+    color: var(--slate-400);
+    margin-top: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .result-container {
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    height: 0;
+    overflow: hidden;
+    margin-top: 0;
+  }
+
+  .result-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    height: auto;
+    margin-top: 1.5rem;
+  }
+
+  .runway-card {
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    border-width: 2px;
+    border-style: solid;
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+  }
+
+  .runway-card.theme-good { background: var(--primary-soft); border-color: var(--primary); color: var(--primary-dark); }
+  .runway-card.theme-warning { background: var(--warning-soft); border-color: var(--warning); color: #92400e; }
+  .runway-card.theme-critical { background: var(--critical-soft); border-color: var(--critical); color: var(--critical); }
+  
+  .res-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+  }
+  
+  .res-value {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+
+  .status-dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+  
+  .burn-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--slate-100);
+  }
+  
+  .metric-box { text-align: center; }
+  .metric-label {
+    display: block;
+    font-size: 0.65rem;
+    color: var(--slate-400);
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+  .metric-value { font-size: 0.95rem; font-weight: 700; color: var(--slate-800); }
+
+  .explanation-card {
+    background: var(--slate-50);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border: 1px solid var(--slate-200);
+  }
+
+  .explanation-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--slate-800);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .explanation-text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--slate-600);
+  }
+
+  .explanation-text strong {
+    color: var(--slate-800);
+  }
+
+  .unit-disclaimer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.7rem;
+    color: var(--slate-400);
+    font-weight: 500;
+  }
+
+  @media (max-width: 480px) {
+    .calculator-card { padding: 1.5rem; }
+    .burn-metrics { grid-template-columns: 1fr; gap: 16px; }
+    .metric-box { display: flex; justify-content: space-between; align-items: center; }
+    .metric-label { margin-bottom: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="calculator-card">
+    <header>
+      <h1>Cash Runway</h1>
+      <p class="subtitle">Operational Sustainability Calculator</p>
+    </header>
+    
+    <!-- Updated Formula Display with Division Line -->
+    <div class="formula-display">
+      <span>Estimated Runway</span>
+      <span class="equals-sign">=</span>
+      <div class="fraction-ui">
+        <span>Cash on Hand</span>
+        <div class="fraction-line"></div>
+        <span>Monthly Burn</span>
+      </div>
+    </div>
+    
+    <div class="input-grid">
+      <div class="input-field">
+        <label for="cashTotal">Total Cash on Hand</label>
+        <div class="control-wrapper">
+          <span class="icon-prefix">$</span>
+          <input type="number" id="cashTotal" placeholder="0.00" step="0.01">
+        </div>
+        <p class="hint">Cash & short-term liquid assets ($M)</p>
+      </div>
+      
+      <div class="input-field">
+        <label for="ops">Net Burn (Outflow)</label>
+        <div class="control-wrapper">
+          <span class="icon-prefix">$</span>
+          <input type="number" id="ops" placeholder="0.00" step="0.01">
+        </div>
+        <p class="hint">Total net loss over the period ($M)</p>
+      </div>
+      
+      <div class="input-field">
+        <label for="months">Reporting Period</label>
+        <div class="control-wrapper">
+          <span class="icon-prefix">#</span>
+          <input type="number" id="months" value="12" min="1">
+        </div>
+        <p class="hint">Number of months in the reporting period</p>
+      </div>
+    </div>
+    
+    <div id="resultContainer" class="result-container">
+      <div id="runwayCard" class="runway-card">
+        <div class="res-label">Estimated Runway</div>
+        <div class="res-value" id="runwayValue">0.0</div>
+        <div style="font-size: 1rem; font-weight: 700; margin-bottom: 1rem; opacity: 0.9;">MONTHS</div>
+        <div class="status-badge">
+          <span class="status-dot"></span>
+          <span id="statusLabel">Calculating...</span>
+        </div>
+      </div>
+
+      <div class="burn-metrics">
+        <div class="metric-box">
+          <span class="metric-label">Daily Burn</span>
+          <span class="metric-value" id="dailyBurn">$0.00M</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-label">Weekly Burn</span>
+          <span class="metric-value" id="weeklyBurn">$0.00M</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-label">Monthly Burn</span>
+          <span class="metric-value" id="monthlyBurn">$0.00M</span>
+        </div>
+      </div>
+
+      <div class="explanation-card">
+        <div class="explanation-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          Analysis Summary
+        </div>
+        <div class="explanation-text" id="explanationContent">
+          Performing objective financial analysis...
+        </div>
+      </div>
+    </div>
+
+    <p class="unit-disclaimer">FINANCIAL DATA IN MILLIONS ($M)</p>
+  </div>
+
+<script>
+  const cashInput = document.getElementById('cashTotal');
+  const opsInput = document.getElementById('ops');
+  const monthsInput = document.getElementById('months');
+  
+  const resultContainer = document.getElementById('resultContainer');
+  const runwayCard = document.getElementById('runwayCard');
+  const runwayValue = document.getElementById('runwayValue');
+  const statusLabel = document.getElementById('statusLabel');
+  
+  const monthlyBurnEl = document.getElementById('monthlyBurn');
+  const dailyBurnEl = document.getElementById('dailyBurn');
+  const weeklyBurnEl = document.getElementById('weeklyBurn');
+  const explanationContent = document.getElementById('explanationContent');
+
+  function calculate() {
+    const cashTotal = parseFloat(cashInput.value);
+    const ops = Math.abs(parseFloat(opsInput.value));
+    const months = parseFloat(monthsInput.value) || 1;
+
+    if (!isNaN(cashTotal) && !isNaN(ops) && cashInput.value !== "" && opsInput.value !== "") {
+      resultContainer.classList.add('visible');
+    } else {
+      resultContainer.classList.remove('visible');
+      return;
+    }
+
+    const monthlyBurn = ops / months;
+    const runway = monthlyBurn > 0 ? cashTotal / monthlyBurn : 0;
+    
+    runwayValue.textContent = runway.toFixed(1);
+    monthlyBurnEl.textContent = `$${monthlyBurn.toFixed(2)}M`;
+    
+    const dailyBurn = monthlyBurn / (30.4375);
+    dailyBurnEl.textContent = `$${dailyBurn.toFixed(2)}M`;
+    weeklyBurnEl.textContent = `$${(dailyBurn * 7).toFixed(2)}M`;
+    
+    updateVisualTheme(runway, cashTotal, ops, monthlyBurn);
+  }
+  
+  function updateVisualTheme(runway, cashTotal, ops, monthlyBurn) {
+    runwayCard.classList.remove('theme-good', 'theme-warning', 'theme-critical');
+    let explanation = "";
+    
+    if (runway <= 0 && ops <= 0) {
+      runwayCard.classList.add('theme-good');
+      statusLabel.textContent = 'Stable/Positive Cash Flow';
+      explanation = "The business is currently <strong>cash-flow positive</strong> or stable. With a zero or negative burn rate, capital reserves are not being depleted, resulting in an infinite runway under present operational conditions.";
+    } else if (runway < 6) {
+      runwayCard.classList.add('theme-critical');
+      statusLabel.textContent = 'Critical Action Required';
+      explanation = `With a monthly net burn of <strong>$${monthlyBurn.toFixed(2)}M</strong>, the business has less than 6 months of liquidity remaining. This is a <strong>critical threshold</strong>; the stock is in a high-risk zone requiring immediate capital infusion or aggressive restructuring to avoid insolvency.`;
+    } else if (runway < 12) {
+      runwayCard.classList.add('theme-warning');
+      statusLabel.textContent = 'Monitor Burn Rate';
+      explanation = `The business maintains a moderate liquidity buffer. A <strong>${runway.toFixed(1)}-month runway</strong> suggests the stock has a limited window to achieve self-sufficiency or secure further financing before the cash position becomes critical.`;
+    } else {
+      runwayCard.classList.add('theme-good');
+      statusLabel.textContent = 'Healthy Sustainability';
+      explanation = `The financial position is <strong>robust</strong>. With over 12 months of runway, the business has significant time to execute long-term strategic pivots, scale operations, or wait for optimal market conditions for future equity or debt offerings.`;
+    }
+
+    explanationContent.innerHTML = explanation;
+  }
+
+  [cashInput, opsInput, monthsInput].forEach(el => {
+    el.addEventListener('input', calculate);
+  });
+</script>
+</body>
+</html>
