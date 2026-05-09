@@ -28,7 +28,6 @@
         box-shadow: 0 6px 20px 0 rgba(79, 70, 229, 0.6);
     }
 
-    /* Styles for the hero section */
     .text-gradient {
         background: linear-gradient(to right, #6366f1, #a5b4fc);
         -webkit-background-clip: text;
@@ -38,6 +37,27 @@
     .video-glow {
         box-shadow: 0 0 25px rgba(129, 140, 248, 0.4), 0 0 40px rgba(129, 140, 248, 0.2);
         border-radius: 0.75rem;
+    }
+
+    /* TradingView Affiliate Styles */
+    .tv-banner-container {
+        display: flex;
+        justify-content: center;
+        padding: 2rem 1rem;
+        background-color: transparent;
+    }
+    .tv-banner {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        background-image: url(https://s3.tradingview.com/pub/referrals/creatives/DT/EN/468x60Banner.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+        .tv-banner {
+            background-image: url(https://s3.tradingview.com/pub/referrals/creatives/DT/EN/936x120Banner.jpg);
+        }
     }
   </style>
 </head>
@@ -77,14 +97,10 @@
                   <h1 class="text-4xl md:text-6xl font-extrabold text-slate-100 leading-tight">
                       Master Stock Analysis <span class="text-gradient">Like a Pro</span>
                   </h1>
-
-                  <!-- Personal bio / credibility -->
                   <p class="mt-5 text-slate-200/90 max-w-xl mx-auto lg:mx-0">
                       Welcome! I’ve been active in the market for over <strong>9 years.</strong> 
-                  </strong>
                       Over the past 3 years, my personal portfolio has achieved a return of <strong>260%+</strong>.
-                      From my experience, I developed a clear, structured approach to stock analysis and portfolio management.
-                      My goal is to help others invest with confidence and achieve real results!
+                      I developed a clear, structured approach to stock analysis. My goal is to help you invest with confidence.
                   </p>
 
                   <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -100,7 +116,6 @@
                   </div>
               </div>
 
-              <!-- YouTube iframe embedded video -->
               <div class="video-glow">
                   <div class="aspect-video rounded-xl shadow-2xl overflow-hidden bg-slate-800">
                       <iframe
@@ -132,225 +147,71 @@
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- Tool Card 1: Compound Interest -->
         <a href="https://blueblue2348-bit.github.io/investingtools/Compound.html" class="group flex flex-col justify-between bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
             <div class="p-6">
-                <div class="flex items-center gap-4">
-                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-coins fa-lg"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">Compound Interest</h3>
-                </div>
+                <div class="flex items-center gap-4"><div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-coins fa-lg"></i></div><h3 class="text-xl font-bold text-slate-900">Compound Interest</h3></div>
                 <p class="mt-3 text-slate-600">Project your portfolio’s long-term growth with contributions and reinvestments.</p>
             </div>
             <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-                <img src="https://blueblue2348-bit.github.io/investingtools/images%20site/Compound.jpg" alt="Compound Interest Calculator preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
-                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                    <i class="fas fa-external-link-alt"></i> Open Tool
-                </div>
+                <img src="https://blueblue2348-bit.github.io/investingtools/images%20site/Compound.jpg" alt="Compound Interest" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-50"></div>
             </div>
         </a>
-
-        <!-- Tool Card 2: Intrinsic Value Calculator -->
         <a href="https://blueblue2348-bit.github.io/investingtools/IV.html" class="group flex flex-col justify-between bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
             <div class="p-6">
-                <div class="flex items-center gap-4">
-                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-calculator fa-lg"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">Intrinsic Value</h3>
-                </div>
-                <p class="mt-3 text-slate-600">Calculate The True Value Per Share of A Stock! (Discounted CashFlow, Warren Buffet OE).</p>
+                <div class="flex items-center gap-4"><div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-calculator fa-lg"></i></div><h3 class="text-xl font-bold text-slate-900">Intrinsic Value</h3></div>
+                <p class="mt-3 text-slate-600">Calculate The True Value Per Share of A Stock! (DCF, Warren Buffet OE).</p>
             </div>
             <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-                <img src="https://blueblue2348-bit.github.io/investingtools/images%20site/Value.jpg" alt="Intrinsic Value Calculator preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
-                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                    <i class="fas fa-external-link-alt"></i> Open Tool
-                </div>
+                <img src="https://blueblue2348-bit.github.io/investingtools/images%20site/Value.jpg" alt="Value" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-50"></div>
             </div>
         </a>
-
-        <!-- Tool Card 3: Economic Moat Analyzer -->
         <a href="https://blueblue2348-bit.github.io/investingtools/economicmoat.html" class="group flex flex-col justify-between bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
             <div class="p-6">
-                <div class="flex items-center gap-4">
-                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-shield-alt fa-lg"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">Moat Analyzer</h3>
-                </div>
-                <p class="mt-3 text-slate-600">Find The Economic Moat Strength of a Stock! (Brand Recognition, Switching Costs & more).</p>
+                <div class="flex items-center gap-4"><div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-shield-alt fa-lg"></i></div><h3 class="text-xl font-bold text-slate-900">Moat Analyzer</h3></div>
+                <p class="mt-3 text-slate-600">Find The Economic Moat Strength of a Stock! (Brand, Switching Costs).</p>
             </div>
             <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-                <img src="https://blueblue2348-bit.github.io/investingtools/images%20site/Moat.jpg" alt="Economic Moat Analyzer preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
-                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                    <i class="fas fa-external-link-alt"></i> Open Tool
-                </div>
+                <img src="https://blueblue2348-bit.github.io/investingtools/images%20site/Moat.jpg" alt="Moat" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-50"></div>
             </div>
         </a>
-
-        <!-- Tool Card 4: Portfolio Tracker -->
         <a href="https://blueblue2348-bit.github.io/investingtools/Portfolio.html" class="group flex flex-col justify-between bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
             <div class="p-6">
-                <div class="flex items-center gap-4">
-                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-chart-pie fa-lg"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">Portfolio Tracker</h3>
-                </div>
-                <p class="mt-3 text-slate-600">Follow your portfolio’s performance with real-time tracking and allocation view.</p>
+                <div class="flex items-center gap-4"><div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-chart-pie fa-lg"></i></div><h3 class="text-xl font-bold text-slate-900">Portfolio Tracker</h3></div>
+                <p class="mt-3 text-slate-600">Follow your portfolio’s performance with real-time tracking.</p>
             </div>
             <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-                <img src="https://blueblue2348-bit.github.io/investingtools/images%20site/Tracker.jpg" alt="Portfolio Tracker preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
-                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                    <i class="fas fa-external-link-alt"></i> Open Tool
-                </div>
+                <img src="https://blueblue2348-bit.github.io/investingtools/images%20site/Tracker.jpg" alt="Tracker" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-50"></div>
             </div>
         </a>
-
-        <!-- Tool Card 5: Price to Sales Ratio Analyzer -->
-        <a href="https://blueblue2348-bit.github.io/investingtools/PSRatio.html" class="group flex flex-col justify-between bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-            <div class="p-6">
-                <div class="flex items-center gap-4">
-                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-clipboard-check fa-lg"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">P/S Ratio Analyzer</h3>
-                </div>
-                <p class="mt-3 text-slate-600">Find whether a company is undervalued based on historical Price-to-Sales Ratios.</p>
-            </div>
-            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-                <img src="https://blueblue2348-bit.github.io/investingtools/images%20site/Paper.jpg" alt="P/S Ratio Analyzer preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
-                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                    <i class="fas fa-external-link-alt"></i> Open Tool
-                </div>
-            </div>
-        </a>
-
-        <!-- Tool Card 6: Stock News Analyzer-->
-        <a href="https://blueblue2348-bit.github.io/investingtools/StockPulse.html" class="group flex flex-col justify-between bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-            <div class="p-6">
-                <div class="flex items-center gap-4">
-                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-newspaper fa-lg"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">Stock Pulse</h3>
-                </div>
-                <p class="mt-3 text-slate-600">Find the latest news, market sentiment, and updates of any company instantly.</p>
-            </div>
-            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-                <img src="https://blueblue2348-bit.github.io/investingtools/images%20site/Game.jpg" alt="Stock Pulse preview" loading="lazy" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/800x400/e2e8f0/64748b?text=Image+Unavailable';">
-                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                    <i class="fas fa-external-link-alt"></i> Open Tool
-                </div>
-            </div>
-        </a>
-
-        <!-- Tool Card 7: Auto IV Calculator -->
-        <a href="https://blueblue2348-bit.github.io/investingtools/AutoIV.html" class="group flex flex-col justify-between bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-            <div class="p-6">
-                <div class="flex items-center gap-4">
-                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-money-bill-wave fa-lg"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">Auto IV Calculator</h3>
-                </div>
-                <p class="mt-3 text-slate-600">Calculate the intrinsic value (IV) of a company automatically using financial data.</p>
-            </div>
-            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-                <img src="https://placehold.co/800x400/e2e8f0/64748b?text=Auto+IV" alt="Auto IV Calculator preview" loading="lazy" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                    <i class="fas fa-external-link-alt"></i> Open Tool
-                </div>
-            </div>
-        </a>
-
-        <!-- Tool Card 8: Runway-->
-        <a href="https://blueblue2348-bit.github.io/investingtools/Runway.html" class="group flex flex-col justify-between bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-            <div class="p-6">
-                <div class="flex items-center gap-4">
-                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-percentage fa-lg"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">Runway Calculator</h3>
-                </div>
-                <p class="mt-3 text-slate-600">How long can the company survive until it runs out of cash based on burn rate.</p>
-            </div>
-            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-                <img src="https://placehold.co/800x400/e2e8f0/64748b?text=Runway+Calculator" alt="RUNWAY" loading="lazy" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                    <i class="fas fa-external-link-alt"></i> Open Tool
-                </div>
-            </div>
-        </a>
-
-        <!-- Tool Card 9: Stock Screener -->
-        <a href="#" class="group flex flex-col justify-between bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-            <div class="p-6">
-                <div class="flex items-center gap-4">
-                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-filter fa-lg"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">Stock Screener</h3>
-                </div>
-                <p class="mt-3 text-slate-600">Filter the market for stocks that meet your specific value investing criteria.</p>
-            </div>
-            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-                <img src="https://placehold.co/800x400/e2e8f0/64748b?text=Stock+Screener" alt="Stock Screener preview" loading="lazy" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                    <i class="fas fa-external-link-alt"></i> Open Tool
-                </div>
-            </div>
-        </a>
-
-        <!-- Tool Card 10: Dividend Tracker -->
-        <a href="#" class="group flex flex-col justify-between bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-            <div class="p-6">
-                <div class="flex items-center gap-4">
-                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-hand-holding-usd fa-lg"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">Dividend Tracker</h3>
-                </div>
-                <p class="mt-3 text-slate-600">Track upcoming dividend payouts and visualize your annual dividend yield.</p>
-            </div>
-            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-                <img src="https://placehold.co/800x400/e2e8f0/64748b?text=Dividend+Tracker" alt="Dividend Tracker preview" loading="lazy" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                    <i class="fas fa-external-link-alt"></i> Open Tool
-                </div>
-            </div>
-        </a>
-
-        <!-- Tool Card 11: DCF Calculator -->
-        <a href="#" class="group flex flex-col justify-between bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-            <div class="p-6">
-                <div class="flex items-center gap-4">
-                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-project-diagram fa-lg"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">DCF Modeler</h3>
-                </div>
-                <p class="mt-3 text-slate-600">Advanced Discounted Cash Flow modeler to forecast future company revenues.</p>
-            </div>
-            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-                <img src="https://placehold.co/800x400/e2e8f0/64748b?text=DCF+Modeler" alt="DCF Modeler preview" loading="lazy" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                    <i class="fas fa-external-link-alt"></i> Open Tool
-                </div>
-            </div>
-        </a>
-
-        <!-- Tool Card 12: Market Heatmap -->
-        <a href="#" class="group flex flex-col justify-between bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden border border-slate-200">
-            <div class="p-6">
-                <div class="flex items-center gap-4">
-                    <div class="bg-blue-100 text-blue-600 p-3 rounded-lg"><i class="fas fa-th fa-lg"></i></div>
-                    <h3 class="text-xl font-bold text-slate-900">Market Heatmap</h3>
-                </div>
-                <p class="mt-3 text-slate-600">Visualize the entire stock market performance at a glance with color coding.</p>
-            </div>
-            <div class="relative h-48 bg-slate-100 border-t border-slate-200">
-                <img src="https://placehold.co/800x400/e2e8f0/64748b?text=Market+Heatmap" alt="Market Heatmap preview" loading="lazy" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent group-hover:from-transparent transition-all"></div>
-                <div class="absolute bottom-4 right-4 bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:scale-100 scale-90 flex items-center gap-2">
-                    <i class="fas fa-external-link-alt"></i> Open Tool
-                </div>
-            </div>
-        </a>
-
       </div>
     </div>
+  </section>
+
+  <!-- Middle Affiliate Section -->
+  <section class="py-16 bg-slate-900 text-white overflow-hidden relative">
+      <div class="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl -mr-32 -mt-32"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-indigo-600/10 rounded-full blur-3xl -ml-32 -mb-32"></div>
+      
+      <div class="container mx-auto px-6 relative z-10">
+          <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 bg-slate-800/50 p-8 md:p-12 rounded-3xl border border-slate-700">
+              <div>
+                  <span class="inline-block px-3 py-1 bg-blue-600/20 text-blue-400 text-xs font-bold uppercase tracking-widest rounded-full mb-4">Affiliate Link</span>
+                  <h3 class="text-3xl font-bold mb-4">Master Your Charts with TradingView</h3>
+                  <p class="text-slate-300 text-lg">I use TradingView for all my technical analysis. It's the most powerful charting platform available for investors today.</p>
+              </div>
+              <div class="shrink-0">
+                  <a href="https://www.tradingview.com/?aff_id=153611" 
+                     target="_blank" rel="noopener noreferrer"
+                     class="inline-flex items-center gap-3 bg-white text-slate-900 font-extrabold px-8 py-4 rounded-xl hover:bg-blue-50 transition-all transform hover:scale-105 shadow-xl">
+                      Get TradingView <i class="fas fa-external-link-alt text-blue-600"></i>
+                  </a>
+              </div>
+          </div>
+      </div>
   </section>
 
   <!-- Videos Section -->
@@ -358,7 +219,7 @@
     <div class="container mx-auto px-6">
       <div class="text-center">
         <h2 class="text-4xl md:text-5xl font-extrabold text-slate-900">Watch Our Videos</h2>
-        <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">In-depth breakdowns on Super Micro Computer, Alibaba, Amazon, NVIDIA, and more great companies.</p>
+        <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">In-depth breakdowns on SMCI, Alibaba, Amazon, NVIDIA, and more.</p>
         <a href="https://www.youtube.com/@vinc88" target="_blank" rel="noopener noreferrer" class="mt-8 inline-block bg-red-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:bg-red-700 transition-all transform hover:scale-105">
           <i class="fab fa-youtube"></i> Visit YouTube Channel
         </a>
@@ -366,9 +227,16 @@
     </div>
   </section>
 
+  <!-- TradingView Affiliate Banner Section -->
+  <div class="tv-banner-container bg-slate-50">
+    <a href="https://www.tradingview.com/chart/?aff_id=153611&utm_source=creative&utm_lang=EN" target="_blank" class="block hover:opacity-90 transition-opacity">
+        <img class="tv-banner rounded shadow-sm border border-slate-200" width="468" height="60" border="0" alt="TradingView Charting Platform" />
+    </a>
+  </div>
+
   <!-- Footer -->
   <footer class="bg-slate-900 text-slate-400">
-    <div class="container mx-auto px-6 py-12 text-center">
+    <div class="container mx-auto px-6 py-12 text-center border-t border-slate-800">
       <a href="#" class="font-extrabold text-2xl text-white flex items-center justify-center gap-2">
         <i class="fas fa-chart-line"></i>
         <span>Vinc88</span>
@@ -381,7 +249,6 @@
   </footer>
 
   <script>
-    // Set the current year in the footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
