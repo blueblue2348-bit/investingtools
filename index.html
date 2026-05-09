@@ -63,6 +63,9 @@
         width: 100%;
         overflow: hidden;
         background-color: #f1f5f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .image-container img {
@@ -162,7 +165,6 @@
         </p>
       </div>
 
-      <!-- Updated Grid: Grid-cols-4 for large screens -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         
         <!-- 1. Compound Interest -->
@@ -203,7 +205,7 @@
                 <p class="text-sm text-slate-600">Automate your intrinsic value calculations with financial data fetching.</p>
             </div>
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1611974717482-58a25a3d5be3?auto=format&fit=crop&q=80&w=600" alt="Auto IV">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600" alt="Auto IV Analysis">
             </div>
         </a>
 
@@ -329,7 +331,7 @@
                 <p class="text-sm text-slate-600">Price-to-Sales ratio to evaluate revenue-based valuation.</p>
             </div>
             <div class="image-container">
-                <img src="https://images.unsplash.com/photo-1611974717482-58a25a3d5be3?auto=format&fit=crop&q=80&w=600" alt="PS Ratio">
+                <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&q=80&w=600" alt="P/S Ratio Financials">
             </div>
         </a>
 
@@ -389,6 +391,18 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Fallback for broken images
+    document.querySelectorAll('img').forEach(img => {
+      img.onerror = function() {
+        const parent = this.parentElement;
+        this.remove();
+        const placeholder = document.createElement('div');
+        placeholder.className = 'w-full h-full bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center';
+        placeholder.innerHTML = '<i class="fas fa-chart-bar text-slate-300 text-4xl"></i>';
+        parent.appendChild(placeholder);
+      };
+    });
   </script>
 
 </body>
